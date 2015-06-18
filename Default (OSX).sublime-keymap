@@ -1,0 +1,6 @@
+[
+  { "keys": ["super+."], "command": "toggle_done", "context": [{ "key": "selector", "operator": "equal", "operand": "text.taskpaper" }] },
+  { "keys": ["alt+f"], "command": "saved_filters", "context": [{ "key": "selector", "operator": "equal", "operand": "text.taskpaper" }] },
+  { "keys": ["shift+alt+f"], "command": "filter", "context": [{ "key": "selector", "operator": "equal", "operand": "text.taskpaper" }] },
+  { "keys": ["shift+alt+m"], "command": "move_to_project", "context": [{ "key": "selector", "operator": "equal", "operand": "text.taskpaper" }] },
+]
