@@ -1,6 +1,8 @@
 from . import todoflow
+from . import datedrop
 import sublime
 import sublime_plugin
+import re
 
 from .base import get_full_content
 
@@ -24,6 +26,13 @@ class FilterCommand(sublime_plugin.TextCommand):
             self.view.size(), ranges_not_to_fold
         )
         self._do_folding(ranges_to_fold)
+
+    def expand_query(self, query):
+        return re.sub(
+            '{([^}])*}',
+            lambda m: datedrop.expand(m.group(1)),
+            query
+        )
 
     def _get_ranges_not_to_fold(self, query):
         text = self.get_full_content()
