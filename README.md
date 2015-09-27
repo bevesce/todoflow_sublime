@@ -2,7 +2,7 @@ Sublime Text 3 plugin
 
 The most important feature is ability to filter items on to-do list using subset of Taskpaper query syntax, for more information check [Todoflow](https://github.com/bevesce/TodoFlow#queries)
 
-![](http://procrastinationlog.net/images/sublime_todoflow.gif)
+![](images/sublime_todoflow.gif)
 
 - <kbd>⌥+f</kbd> filter using queries defined in sublime-settings
 - <kbd>⌥+⇧+f</kbd> filter
