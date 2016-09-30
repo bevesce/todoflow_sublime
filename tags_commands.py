@@ -1,4 +1,4 @@
-from .todoflow.todoflow import textutils
+from .todoflow import textutils
 import sublime
 import sublime_plugin
 
