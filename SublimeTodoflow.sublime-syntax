@@ -1,0 +1,45 @@
+%YAML 1.2
+---
+name: todoflow/taskpaper
+file_extensions: [taskpaper]
+scope: text.taskpaper
+
+
+
+contexts:
+  main:
+    - match: ^.*:$
+      scope: project.taskpaper
+# whole line tags
+    - match: '^.*@done.*$'
+      scope: comment.taskpaper
+    - match: '^.*@waiting.*$'
+# highlight tags
+      scope: tag.waiting.taskpaper
+    - match: '@working'
+      scope: tag.working.taskpaper
+      push: tag_param
+    - match: '@due'
+      scope: tag.due.taskpaper
+      push: tag_param
+# general tag
+    - match: '@[^\s(]*'
+      scope: tag.taskpaper
+      push: tag_param
+
+  tag_param:
+    - match: \s
+      pop: true
+    - match: \(
+      push: tag_param_content
+      scope: tag_param.taskpaper
+
+  tag_param_content:
+    - match: $
+      scope: invalid.illegal
+      pop: true
+    - match: \)
+      pop: true
+      scope: tag_param.taskpaper
+    - match: .
+      scope: tag_param.taskpaper
