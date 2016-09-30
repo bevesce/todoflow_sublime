@@ -2,7 +2,7 @@
 
 ![icon](icon.png)
 
-Sublime Text 3 plugin for taskpaper filed using [TodoFlow](https://github.com/bevesce/TodoFlow).
+Sublime Text 3 plugin for taskpaper files using [TodoFlow](https://github.com/bevesce/TodoFlow).
 
 #### Filter
 #### Saved filters
