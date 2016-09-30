@@ -1,6 +1,6 @@
 print('init')
 import sys
 import os
-print(os.path.split(__file__)[0])
-sys.path.append(os.path.split(__file__)[0])
-print('sublime todoflow')
+ply_path = os.path.join(os.path.split(__file__)[0], 'ply')
+sys.path.append(ply_path)
+print(ply_path)
