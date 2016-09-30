@@ -1,4 +1,4 @@
-from . import todoflow
+from .todoflow.todoflow import textutils
 import sublime
 import sublime_plugin
 
@@ -14,10 +14,10 @@ class ToggleDoneCommand(sublime_plugin.TextCommand):
         self.view.replace(edit, line_reqion, replacement)
 
     def transform_line(self, line):
-        if todoflow.has_tag(line, 'done'):
-            return todoflow.remove_tag(line, 'done')
+        if textutils.has_tag(line, 'done'):
+            return textutils.remove_tag(line, 'done')
         else:
             import datetime
-            return todoflow.add_tag(
+            return textutils.add_tag(
                 line, 'done', datetime.date.today().isoformat()
             )

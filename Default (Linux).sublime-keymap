@@ -1,0 +1,4 @@
+[
+  { "keys": ["shift+ctrl+f"], "command": "saved_filters", "context": [{ "key": "selector", "operator": "equal", "operand": "text.taskpaper" }] },
+  { "keys": ["ctrl+."], "command": "toggle_done", "context": [{ "key": "selector", "operator": "equal", "operand": "text.taskpaper" }] },
+]
