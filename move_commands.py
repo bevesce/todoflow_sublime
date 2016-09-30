@@ -1,4 +1,5 @@
-from . import todoflow
+from .todoflow import todoflow
+from .todoflow.todoflow import textutils
 import sublime
 import sublime_plugin
 
@@ -60,7 +61,7 @@ class InsertTasksIntoProjectCommand(sublime_plugin.TextCommand):
             yield sublime.Region(s, e), ''
 
     def prepare_text_to_insert(self, project, lines):
-        level = todoflow.calculate_indent_level(project) + 1
+        level = textutils.calculate_indent_level(project) + 1
         return '\n' + '\n'.join(
             ('\t' * level + l for l in lines)
         )

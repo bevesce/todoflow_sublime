@@ -1,4 +1,4 @@
-from . import todoflow
+from .todoflow import todoflow
 from . import datedrop
 import sublime
 import sublime_plugin
@@ -86,7 +86,7 @@ class SavedFiltersCommand(FilterCommand):
         settings = sublime.load_settings('SublimeTodoflow.sublime-settings')
         queries = settings.get('queries')
         self.queries_input = [
-            [k, v] for k, v in queries.items()
+            [q['name'], q['query']] for q in queries
         ] + [self.OTHER_QUERY, self.SHOW_ALL_QUERY]
         return self.queries_input
 

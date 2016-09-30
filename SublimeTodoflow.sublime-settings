@@ -1,7 +1,6 @@
 {
-	"queries": {
-		"Not done": "not @done",
-		"Today": "@today"
-	},
-	"color_scheme": "Packages/SublimeTodoflow/base16-ocean.dark.tmTheme",
+    "queries": [
+        {"name": "Working", "query": "@working not @done"},
+        {"name": "Not done", "query": "not @done"},
+    ],
 }

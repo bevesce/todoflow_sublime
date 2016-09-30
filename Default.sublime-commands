@@ -1,5 +1,6 @@
 [
     { "caption": "Todoflow: Saved Filters", "command": "saved_filters" },
     { "caption": "Todoflow: Filter", "command": "filter" },
-    { "caption": "Todoflow: Toggle done", "command": "toggle_done" }
+    { "caption": "Todoflow: Toggle done", "command": "toggle_done" },
+    { "caption": "Todoflow: Move to project", "command": "move_to_project" }
 ]
