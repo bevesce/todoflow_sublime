@@ -3,4 +3,6 @@
         {"name": "Working", "query": "@working not @done"},
         {"name": "Not done", "query": "not @done"},
     ],
+    "tab_size": 4,
+    "translate_tabs_to_spaces": false,
 }
