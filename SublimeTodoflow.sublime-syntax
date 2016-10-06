@@ -38,8 +38,8 @@ contexts:
     - match: $
       scope: invalid.illegal
       pop: true
+    - match: (\\\)|[^)])
+      scope: tag_param.taskpaper
     - match: \)
       pop: true
-      scope: tag_param.taskpaper
-    - match: .
       scope: tag_param.taskpaper
