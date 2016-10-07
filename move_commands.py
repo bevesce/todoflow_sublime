@@ -1,5 +1,5 @@
 from .todoflow import todoflow
-from .todoflow import textutils
+from .todoflow.todoflow import textutils
 import sublime
 import sublime_plugin
 
@@ -10,40 +10,43 @@ class MoveToProjectCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.edit = edit
         projects = self.get_projects()
-        self.projects, self.projects_ranges = self.get_titles_and_ranges(projects)
+        self.projects, self.lines = self.get_titles_and_lines(projects)
         self.view.window().show_quick_panel(
             self.projects, self.move_to_project_with_index
         )
 
     def get_projects(self):
         text = get_full_content(self.view)
-        todolist = todoflow.from_text(text)
-        return todolist.search('type = "project"')
+        todolist = todoflow.Todos(text)
+        return list(todolist.search('project *'))
 
-    def get_titles_and_ranges(self, projects):
-        titles, ranges = [], []
+    def get_titles_and_lines(self, projects):
+        titles, lines = [], []
         for project in projects:
-            titles.append(str(project)[:-1])
-            ranges.append((project.start, project.end))
-        return titles, ranges
+            titles.append(project.get_text())
+            lines.append(project.get_line_number())
+        return titles, lines
 
     def move_to_project_with_index(self, index):
+        if index == -1:
+            return
         selected_lines = []
         for region in self.view.sel():
             region = self.view.full_line(region)
             selected_lines.append((region.a, region.b))
         self.view.window().run_command('insert_tasks_into_project', {
-            'project_range': self.projects_ranges[index],
+            'project_line': self.lines[index],
             'selected_lines': selected_lines
         })
 
 
 class InsertTasksIntoProjectCommand(sublime_plugin.TextCommand):
-    def run(self, edit, project_range, selected_lines):
+    def run(self, edit, project_line, selected_lines):
         lines_texts = self.get_lines_text(selected_lines)
-        project_s, project_e = project_range
+        project_range = self.view.line(self.view.text_point(project_line, 0))
+        project_s, project_e = project_range.a, project_range.b
         project_line = self.view.substr(
-            sublime.Region(*project_range)
+            sublime.Region(project_s, project_e)
         )
         text_to_insert = self.prepare_text_to_insert(
             project_line, lines_texts

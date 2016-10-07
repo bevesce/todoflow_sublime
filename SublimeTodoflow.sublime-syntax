@@ -10,19 +10,24 @@ contexts:
   main:
     - match: ^.*:$
       scope: project.taskpaper
-# whole line tags
-    - match: '^.*@done.*$'
+    # whole line tags
+    - match: '^.*@search.*\n'
+      scope: tag.search.taskpaper
+    - match: '^.*@done.*\n'
       scope: comment.taskpaper
-    - match: '^.*@waiting.*$'
-# highlight tags
+    - match: '^.*@waiting.*\n'
       scope: tag.waiting.taskpaper
+    # highlighted tags
     - match: '@working'
       scope: tag.working.taskpaper
       push: tag_param
     - match: '@due'
       scope: tag.due.taskpaper
       push: tag_param
-# general tag
+    - match: '@next'
+      scope: tag.next.taskpaper
+      push: tag_param
+    # generic tag
     - match: '@[^\s(]*'
       scope: tag.taskpaper
       push: tag_param
