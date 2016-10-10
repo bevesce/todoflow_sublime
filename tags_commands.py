@@ -19,5 +19,5 @@ class ToggleDoneCommand(sublime_plugin.TextCommand):
         else:
             import datetime
             return textutils.add_tag(
-                line, 'done', datetime.date.today().isoformat()
+                line, 'done', datetime.datetime.now().strftime('%F %R')
             )
