@@ -2,20 +2,49 @@
 
 ![icon](icon.png)
 
-Sublime Text 3 plugin for taskpaper files using [TodoFlow](https://github.com/bevesce/TodoFlow).
+Sublime Text 3 package for taskpaper files based on [TodoFlow](https://github.com/bevesce/TodoFlow).
 
-#### Filter
-#### Saved filters
+## Features
 
-![](images/sublime_todoflow.gif)
+### Syntex definition
 
-#### Toggle done
-#### Move to project
+You can change it to highlight your own tags
+
+![syntax highlighted in mini.dark](screenshots/syntax.png)
+
+### Filter
+
+command: `filter`   
+
+![filter](screenshots/filter.gif)
+
+
+### Saved filters
+
+**<kbd>⌘+shift+f</kbd>**, command: `saved_filters`
+
+![saved filter](screenshots/saved_filter.gif)
+
+### Toggle done
+
+**<kbd>⌘+.</kbd>**, command: `toggle_done`
+
+![toggle done](screenshots/toggle_done.gif)
+
+### Move to project
+
+command: `move_to_project`
+
+![move to project](screenshots/move_to_project.gif)
 
 ## Installation
 
-At this moment package is in development and is not included in Package Control, to install it download zip and extract it to `Sublime Text 3/Packages/`
+Clone package with submodules into Packages folder and adjusts tags in *SublimeTodoflow.sublime-syntax*.
+
+```
+git clone --recursive git@github.com:bevesce/SublimeTodoflow.git path/to/Sublime Text 3/Packages/SublimeTodoflow
+```
 
 ## Requirements/Includes
 
-Plugin requires [ply](https://github.com/dabeaz/ply) and my package [TodoFlow](https://github.com/bevesce/TodoFlow), they are included in this repo as submodules.
+SublimeTodoflow requires my python package [TodoFlow](https://github.com/bevesce/TodoFlow), it's included in this repo as submodule.
