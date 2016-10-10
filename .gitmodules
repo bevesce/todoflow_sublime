@@ -1,6 +1,3 @@
 [submodule "todoflow"]
 	path = todoflow
 	url = git@github.com:bevesce/TodoFlow.git
-[submodule "ply"]
-	path = ply
-	url = git@github.com:dabeaz/ply.git
