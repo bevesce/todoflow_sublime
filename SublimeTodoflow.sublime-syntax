@@ -8,8 +8,6 @@ scope: text.taskpaper
 
 contexts:
   main:
-    - match: ^.*:$
-      scope: project.taskpaper
     # whole line tags
     - match: '^.*@search.*\n'
       scope: tag.search.taskpaper
@@ -17,6 +15,9 @@ contexts:
       scope: comment.taskpaper
     - match: '^.*@waiting.*\n'
       scope: tag.waiting.taskpaper
+    # project
+    - match: ^.*:$
+      scope: project.taskpaper
     # highlighted tags
     - match: '@working'
       scope: tag.working.taskpaper
