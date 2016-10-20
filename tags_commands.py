@@ -14,10 +14,16 @@ class ToggleDoneCommand(sublime_plugin.TextCommand):
         self.view.replace(edit, line_reqion, replacement)
 
     def transform_line(self, line):
+
         if textutils.has_tag(line, 'done'):
             return textutils.remove_tag(line, 'done')
         else:
             import datetime
-            return textutils.add_tag(
+            settings = sublime.load_settings('SublimeTodoflow.sublime-settings')
+            tags_to_remove_one_done = settings.get('tags_to_remove_one_done')
+            for tag in tags_to_remove_one_done:
+                line = textutils.remove_tag(line, tag)
+            line = textutils.add_tag(
                 line, 'done', datetime.datetime.now().strftime('%F %R')
             )
+            return line
