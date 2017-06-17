@@ -40,7 +40,6 @@ class FilterCommand(sublime_plugin.TextCommand):
     def find_lines_not_to_fold(self, query):
         for item in self.todos.filter(query):
             line = item.get_line_number()
-            print('line', line, item.todoitem)
             if line is not None:
                 yield line
 
