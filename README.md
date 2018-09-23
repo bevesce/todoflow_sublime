@@ -42,7 +42,7 @@ command: `move_to_project`
 Clone package with submodules into Packages folder and adjusts tags in *SublimeTodoflow.sublime-syntax*.
 
 ```
-git clone --recursive git@github.com:bevesce/SublimeTodoflow.git path/to/Sublime Text 3/Packages/SublimeTodoflow
+git clone --recursive https://github.com/bevesce/todoflow_sublime.git path/to/Sublime Text 3/Packages/SublimeTodoflow
 ```
 
 ## Requirements/Includes
